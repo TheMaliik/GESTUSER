@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrganisateurController">
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+
+    <!-- Header -->
+    <Label text="Organisateur Dashboard" style="-fx-font-weight: bold; -fx-text-fill: #2a2a2a;">
+        <font>
+            <Font name="System Bold" size="22"/>
+        </font>
+    </Label>
+
+    <!-- User Info Section -->
+    <VBox spacing="8" style="-fx-background-color: #e8ecef; -fx-border-color: #d3d3d3; -fx-border-radius: 8; -fx-padding: 15;">
+        <Label fx:id="welcomeLabel" text="Welcome, [User]" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Label>
+        <Label fx:id="nomLabel" text="Nom: [Nom]"/>
+        <Label fx:id="prenomLabel" text="Prénom: [Prénom]"/>
+        <Label fx:id="emailLabel" text="Email: [Email]"/>
+        <Label fx:id="ageLabel" text="Âge: [Âge]"/>
+        <Label fx:id="roleLabel" text="Rôle: [Rôle]"/>
+    </VBox>
+
+    <!-- Logout Button -->
+    <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-border-radius: 5;"/>
+
+    <stylesheets>
+        <URL value="@/OrganisateurDashboard.css" />
+    </stylesheets>
+</VBox>

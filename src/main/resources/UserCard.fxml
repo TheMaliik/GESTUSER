@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="445.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserCardController">
+
+   <children>
+      <ImageView fx:id="img" fitHeight="185.0" fitWidth="186.0" layoutX="57.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" />
+      <Text layoutX="332.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" AnchorPane.leftAnchor="332.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Text layoutX="332.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blocked" AnchorPane.leftAnchor="332.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Text layoutX="332.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" AnchorPane.leftAnchor="332.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+
+      <Button layoutX="463.0" layoutY="405.2" mnemonicParsing="false" onAction="#updateData" prefHeight="25.6" prefWidth="71.2" text="Update" AnchorPane.bottomAnchor="14.199999999999989" />
+      <Text layoutX="109.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome! You're in control here. Check, update, delete your data.">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="fullNameTextField" layoutX="332.0" layoutY="138.0" prefHeight="26.0" prefWidth="236.0" AnchorPane.leftAnchor="332.0" />
+      <Text fill="#bc0000" layoutX="11.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Profile">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Text>
+      <TextField fx:id="emailTextField" layoutX="332.0" layoutY="191.0" prefHeight="26.0" prefWidth="236.0" AnchorPane.leftAnchor="332.0" />
+      <TextField fx:id="phoneNumberTextField" layoutX="332.0" layoutY="244.0" prefHeight="26.0" prefWidth="236.0" AnchorPane.leftAnchor="332.0" />
+      <TextField fx:id="ApprF" layoutX="332.0" layoutY="300.0" prefHeight="26.0" prefWidth="236.0" AnchorPane.leftAnchor="332.0" />
+      <TextField fx:id="BlocF" layoutX="332.0" layoutY="356.0" prefHeight="26.0" prefWidth="236.0" AnchorPane.leftAnchor="332.0" />
+
+      <Text layoutX="332.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Approved" AnchorPane.leftAnchor="332.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="332.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FullName" AnchorPane.leftAnchor="332.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button layoutX="346.0" layoutY="405.2" mnemonicParsing="false" onAction="#ban" text="Desactiver" AnchorPane.bottomAnchor="14.199999999999989" />
+      <Button layoutX="588.0" layoutY="24.0" mnemonicParsing="false" onAction="#goBackHandler" text="Back" />
+
+   </children>
+
+</AnchorPane>

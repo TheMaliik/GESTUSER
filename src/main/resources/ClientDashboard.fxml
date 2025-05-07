@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="AP" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClientDashboardController">
+    <children>
+      <ImageView fitHeight="600.0" fitWidth="1000.0">
+         <image>
+            <Image url="@/Assets/alina-grubnyak-IsxaFsXi2rs-unsplash.jpg" />
+         </image>
+      </ImageView>
+
+
+
+
+        <Button layoutX="889.0" layoutY="27.99999999999998" mnemonicParsing="false" onAction="#UserCard" prefHeight="30.0" prefWidth="88.0" text="Account" AnchorPane.bottomAnchor="542.0" />
+        <Button layoutX="189.0" layoutY="31.99999999999998" mnemonicParsing="false" onAction="#MuseumRedirClient" prefHeight="26.0" prefWidth="147.0" text="Museums" AnchorPane.bottomAnchor="541.6" />
+        <Button layoutX="449.4" layoutY="31.99999999999998" mnemonicParsing="false" onAction="#EventsRedirClient" prefHeight="26.0" prefWidth="147.0" text="Events" AnchorPane.bottomAnchor="541.6" AnchorPane.leftAnchor="449.4" />
+        <Button layoutX="323.0" layoutY="31.99999999999998" mnemonicParsing="false" onAction="#ExpoRedirectClient" prefHeight="26.0" prefWidth="147.0" text="Expositions" AnchorPane.bottomAnchor="541.6" />
+        <Button layoutX="694.0" layoutY="32.0" mnemonicParsing="false" onAction="#Livraisons" prefHeight="26.0" prefWidth="147.0" text="Livraisons" AnchorPane.bottomAnchor="541.6" />
+        <Button layoutX="572.0" layoutY="31.99999999999998" mnemonicParsing="false" prefHeight="26.0" prefWidth="147.0" text="Orders" AnchorPane.bottomAnchor="541.6" />
+        <Button layoutX="10.0" layoutY="559.0" mnemonicParsing="false" onAction="#goBackHandler2" prefHeight="26.0" prefWidth="80.0" text="Logout" />
+      <ImageView fitHeight="1.0" fitWidth="8.0">
+         <image>
+            <Image url="@/Assets/LOGGGGGO.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="83.0" fitWidth="177.0">
+         <image>
+            <Image url="@/Assets/LOGGGGGO.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#ForumRedirectClient" text="Forum" />
+    </children>
+    <stylesheets>
+        <URL value="@/ClientDashboard.css" />
+    </stylesheets>
+</AnchorPane>

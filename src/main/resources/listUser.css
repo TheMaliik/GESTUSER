@@ -1,0 +1,146 @@
+/* General styling for the AnchorPane */
+AnchorPane {
+    -fx-background-color: #e6f0fa; /* Soft blue-gray background */
+}
+
+/* Styling for the title text */
+Text {
+    -fx-fill: #1a3c66; /* Deep navy blue */
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+
+/* Search TextField styling */
+.search {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0c4de; /* Light steel blue */
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 0 15;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #708090; /* Slate gray */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.search:focused {
+    -fx-border-color: #4682b4; /* Steel blue */
+    -fx-border-width: 2;
+}
+
+/* ScrollPane styling */
+ScrollPane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+ScrollPane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* User card container styling */
+.card-container {
+    -fx-padding: 10;
+    -fx-spacing: 15;
+}
+
+/* Individual user card styling (assuming HBox or similar) */
+.card-container > * {
+    -fx-background-color: #f0f8ff; /* Alice blue */
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 3);
+    -fx-alignment: center-left;
+    -fx-spacing: 10;
+}
+
+/* Styling for text elements within user cards (e.g., Labels or Text for name, email) */
+.card-container > * > Label,
+.card-container > * > Text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50; /* Dark slate gray for high contrast */
+    -fx-font-family: "Arial";
+    -fx-padding: 5;
+    -fx-wrap-text: true; /* Ensure text wraps if too long */
+}
+
+/* Ensure nested HBox/VBox within cards have proper spacing and visibility */
+.card-container > * > HBox,
+.card-container > * > VBox {
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+
+/* Hover effect for user cards */
+.card-container > *:hover {
+    -fx-background-color: #e0f0ff; /* Lighter blue on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0, 0, 5);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+/* Button styling */
+Button {
+    -fx-background-color: #ff6f61; /* Coral */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 8 15;
+    -fx-cursor: hand;
+}
+
+Button:hover {
+    -fx-background-color: #e55a4e; /* Darker coral */
+}
+
+Button:pressed {
+    -fx-background-color: #c0392b; /* Deep red */
+}
+
+/* Dashboard button specific styling */
+Button[text="Dashboard"] {
+    -fx-background-color: #2ecc71; /* Emerald green */
+}
+
+Button[text="Dashboard"]:hover {
+    -fx-background-color: #27ae60; /* Darker green */
+}
+
+/* Statistics button specific styling */
+Button[text="Statistics"] {
+    -fx-background-color: #9b59b6; /* Amethyst purple */
+}
+
+Button[text="Statistics"]:hover {
+    -fx-background-color: #8e44ad; /* Darker purple */
+}
+
+/* CheckBox styling */
+CheckBox {
+    -fx-text-fill: #2c3e50; /* Dark slate gray */
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+}
+
+CheckBox .box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0c4de; /* Light steel blue */
+    -fx-border-radius: 3;
+}
+
+CheckBox:selected .mark {
+    -fx-background-color: #4682b4; /* Steel blue */
+}
+
+/* ImageView styling for logo */
+ImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+/* Add smooth transitions for interactive elements */
+.search, Button, CheckBox, .card-container > * {
+    -fx-transition: all 0.3s ease;
+}

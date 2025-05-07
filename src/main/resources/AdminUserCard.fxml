@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="445.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminUserCardController">
+    <children>
+        <ImageView fx:id="img" fitHeight="124.0" fitWidth="186.0" layoutX="57.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true" />
+        <Text layoutX="235.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text layoutX="467.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text layoutX="235.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text layoutX="467.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text layoutX="235.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text layoutX="158.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome! You're in control here.">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text fill="#bc0000" layoutX="11.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+            <font>
+                <Font name="System Bold" size="40.0" />
+            </font>
+        </Text>
+        <TextField fx:id="nomTextField" layoutX="235.0" layoutY="185.0" prefHeight="26.0" prefWidth="195.0" />
+        <TextField fx:id="prenomTextField" layoutX="467.0" layoutY="185.0" prefHeight="26.0" prefWidth="168.0" />
+        <TextField fx:id="emailTextField" layoutX="235.0" layoutY="252.0" prefHeight="26.0" prefWidth="195.0" />
+        <TextField fx:id="ageTextField" layoutX="467.0" layoutY="252.0" prefHeight="26.0" prefWidth="168.0" />
+        <TextField fx:id="roleTextField" layoutX="235.0" layoutY="315.0" prefHeight="26.0" prefWidth="195.0" />
+        <Button layoutX="579.0" layoutY="37.0" mnemonicParsing="false" onAction="#goBackHandler" text="Back" />
+    </children>
+</AnchorPane>
