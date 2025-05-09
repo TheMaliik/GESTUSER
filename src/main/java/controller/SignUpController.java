@@ -21,11 +21,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-/**
- * FXML Controller class
- *
- * @author TheMaliik
- */
+
+
+
+
+
 public class SignUpController {
 
     @FXML

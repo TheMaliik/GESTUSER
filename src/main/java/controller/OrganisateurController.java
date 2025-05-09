@@ -1,9 +1,12 @@
 package controller;
 
 import Entity.User;
+import Services.ServiceUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,8 +29,27 @@ public class OrganisateurController {
     private Label roleLabel;
     @FXML
     private Button logoutButton;
+    @FXML
+    private Button updateButton;
+    @FXML
+    private VBox userInfoVBox;
+    @FXML
+    private VBox updateFormVBox;
+    @FXML
+    private TextField nomField;
+    @FXML
+    private TextField prenomField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private TextField ageField;
+    @FXML
+    private Button saveButton;
+    @FXML
+    private Button cancelButton;
 
     private User loggedInUser;
+    private ServiceUser userService = new ServiceUser();
 
     // Setter to receive the logged-in user from LoginController
     public void setLoggedInUser(User user) {
@@ -51,8 +73,13 @@ public class OrganisateurController {
             nomLabel.setText("Nom: " + loggedInUser.getNom());
             prenomLabel.setText("Prénom: " + loggedInUser.getPrenom());
             emailLabel.setText("Email: " + loggedInUser.getEmail());
-            ageLabel.setText("Âge: " + loggedInUser.getAge());
+            ageLabel.setText("Âge: " + String.valueOf(loggedInUser.getAge()));
             roleLabel.setText("Rôle: " + loggedInUser.getRole());
+            // Ensure user info is visible and update form is hidden
+            userInfoVBox.setVisible(true);
+            userInfoVBox.setManaged(true);
+            updateFormVBox.setVisible(false);
+            updateFormVBox.setManaged(false);
         } else {
             // Handle case where no user is logged in
             welcomeLabel.setText("Erreur: Aucun utilisateur connecté.");
@@ -61,6 +88,11 @@ public class OrganisateurController {
             emailLabel.setText("Email: N/A");
             ageLabel.setText("Âge: N/A");
             roleLabel.setText("Rôle: N/A");
+            // Ensure user info is visible and update form is hidden
+            userInfoVBox.setVisible(true);
+            userInfoVBox.setManaged(true);
+            updateFormVBox.setVisible(false);
+            updateFormVBox.setManaged(false);
         }
     }
 
@@ -87,5 +119,72 @@ public class OrganisateurController {
             e.printStackTrace();
             welcomeLabel.setText("Erreur lors de la déconnexion.");
         }
+    }
+
+    @FXML
+    private void handleUpdate() {
+        if (loggedInUser != null) {
+            // Populate update form with current user data
+            nomField.setText(loggedInUser.getNom());
+            prenomField.setText(loggedInUser.getPrenom());
+            emailField.setText(loggedInUser.getEmail());
+            ageField.setText(String.valueOf(loggedInUser.getAge()));
+            // Toggle visibility
+            userInfoVBox.setVisible(false);
+            userInfoVBox.setManaged(false);
+            updateFormVBox.setVisible(true);
+            updateFormVBox.setManaged(true);
+        } else {
+            welcomeLabel.setText("Erreur: Aucun utilisateur à modifier.");
+        }
+    }
+
+    @FXML
+    private void handleSave() {
+        try {
+            // Validate inputs
+            String nom = nomField.getText().trim();
+            String prenom = prenomField.getText().trim();
+            String email = emailField.getText().trim();
+            String ageText = ageField.getText().trim();
+
+            if (nom.isEmpty() || prenom.isEmpty() || email.isEmpty() || ageText.isEmpty()) {
+                welcomeLabel.setText("Erreur: Tous les champs sont requis.");
+                return;
+            }
+
+            int age = Integer.parseInt(ageText);
+
+            // Update user object
+            loggedInUser.setNom(nom);
+            loggedInUser.setPrenom(prenom);
+            loggedInUser.setEmail(email);
+            loggedInUser.setAge(age);
+
+            // Persist changes to database
+            userService.modifier(loggedInUser);
+
+            // Toggle visibility back to user info and refresh dashboard
+            userInfoVBox.setVisible(true);
+            userInfoVBox.setManaged(true);
+            updateFormVBox.setVisible(false);
+            updateFormVBox.setManaged(false);
+            initializeDashboard();
+        } catch (NumberFormatException e) {
+            // Handle invalid age input
+            ageField.setText("Âge invalide");
+        } catch (Exception e) {
+            e.printStackTrace();
+            welcomeLabel.setText("Erreur lors de la mise à jour.");
+        }
+    }
+
+    @FXML
+    private void handleCancel() {
+        // Toggle visibility back to user info
+        userInfoVBox.setVisible(true);
+        userInfoVBox.setManaged(true);
+        updateFormVBox.setVisible(false);
+        updateFormVBox.setManaged(false);
     }
 }

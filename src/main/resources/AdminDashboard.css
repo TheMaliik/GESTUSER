@@ -32,7 +32,7 @@
 }
 
 #logoutButton {
-    -fx-background-color: #f44336; /* Red */
+    -fx-background-color: #000000; /* Red */
 }
 
 #logoutButton:hover {
@@ -49,4 +49,8 @@
     -fx-fill: #0f167a; /* Text color */
     -fx-font-size: 24px; /* Font size */
     -fx-font-weight: bold; /* Font weight */
+}
+#logout {
+    -fx-background-color: #0f167a; /* Blue background */
+    -fx-text-fill: #FFFFFF; /* White text */
 }

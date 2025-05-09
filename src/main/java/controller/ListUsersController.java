@@ -10,12 +10,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -41,8 +42,7 @@ public class ListUsersController implements Initializable {
     private TextField search;
 
     ObservableList<User> obslistus = FXCollections.observableArrayList();
-    private ServiceUser userS = new ServiceUser(); // Moved to class level
-
+    private ServiceUser userS = new ServiceUser();
     Connection connection = DBConnection.getInstance().getConnection();
 
     @Override
@@ -71,34 +71,52 @@ public class ListUsersController implements Initializable {
 
     private void updateUserCards(List<User> users) {
         usersVBox.getChildren().clear();
+        GridPane grid = new GridPane();
+        grid.setHgap(20);
+        grid.setVgap(20);
+        grid.setPadding(new Insets(20));
+        grid.setAlignment(Pos.TOP_CENTER);
+
+        int columnCount = 3; // Number of cards per row
+        int row = 0;
+        int col = 0;
+
         for (User user : users) {
-            HBox card = new HBox();
+            // Create square card
+            VBox card = new VBox();
+            card.setPrefSize(250, 250);
             card.setSpacing(10);
-            card.setStyle("-fx-padding: 10; -fx-border-color: grey; -fx-border-width: 1; -fx-background-color: white;");
+            card.setAlignment(Pos.CENTER);
+            card.setStyle("-fx-padding: 15; -fx-border-color: grey; -fx-border-width: 1; -fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;");
 
-            Label nomLabel = new Label(user.getNom());
-            nomLabel.setPrefWidth(150);
-            Label prenomLabel = new Label(user.getPrenom());
-            prenomLabel.setPrefWidth(150);
-            Label emailLabel = new Label(user.getEmail());
-            emailLabel.setPrefWidth(200);
-            Label ageLabel = new Label(String.valueOf(user.getAge()));
-            ageLabel.setPrefWidth(80);
-            Label roleLabel = new Label(user.getRole());
-            roleLabel.setPrefWidth(100);
+            // User details with black text
+            Label nomLabel = new Label("Name: " + user.getNom());
+            nomLabel.setStyle("-fx-font-weight: bold; -fx-text-fill: black;");
+            Label prenomLabel = new Label("Surname: " + user.getPrenom());
+            prenomLabel.setStyle("-fx-text-fill: black;");
+            Label emailLabel = new Label("Email: " + user.getEmail());
+            emailLabel.setStyle("-fx-text-fill: black;");
+            emailLabel.setWrapText(true);
+            Label ageLabel = new Label("Age: " + user.getAge());
+            ageLabel.setStyle("-fx-text-fill: black;");
+            Label roleLabel = new Label("Role: " + user.getRole());
+            roleLabel.setStyle("-fx-text-fill: black;");
 
+            // Buttons with clear text
             Button deleteButton = new Button("Delete");
+            deleteButton.setStyle("-fx-background-color: #ff4d4d; -fx-text-fill: white; -fx-font-weight: bold;");
             deleteButton.setOnAction(event -> {
                 obslistus.remove(user);
                 try {
                     userS.supprimer(user);
-                    listUsers(); // Refresh the view
+                    listUsers();
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
             });
 
-            Button getByIdButton = new Button("Get by ID");
+            Button getByIdButton = new Button("View Details");
+            getByIdButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
             getByIdButton.setOnAction(event -> {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/AdminUserCard.fxml"));
@@ -113,10 +131,20 @@ public class ListUsersController implements Initializable {
                 }
             });
 
-            HBox buttonBox = new HBox(5, deleteButton, getByIdButton);
+            HBox buttonBox = new HBox(10, deleteButton, getByIdButton);
+            buttonBox.setAlignment(Pos.CENTER);
+
             card.getChildren().addAll(nomLabel, prenomLabel, emailLabel, ageLabel, roleLabel, buttonBox);
-            usersVBox.getChildren().add(card);
+            grid.add(card, col, row);
+
+            col++;
+            if (col >= columnCount) {
+                col = 0;
+                row++;
+            }
         }
+
+        usersVBox.getChildren().add(grid);
     }
 
     @FXML

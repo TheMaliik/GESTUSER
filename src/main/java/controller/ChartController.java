@@ -19,12 +19,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * FXML Controller class
- *
- * @author TheMaliik
- */
-
 public class ChartController {
 
     @FXML
@@ -36,49 +30,49 @@ public class ChartController {
     @FXML
     private NumberAxis yAxis;
 
-    private Connection connection; // Declare the Connection variable
+    private Connection connection;
 
     public void initialize() {
         // Initialize the bar chart
-        xAxis.setLabel("Status");
-        yAxis.setLabel("Number of Clients");
+        xAxis.setLabel("Category");
+        yAxis.setLabel("Count");
 
         try {
             // Initialize the database connection
             connection = DBConnection.getInstance().getConnection();
 
             // Query database to get counts
-            int approvedCount = getCountFromDatabase(true);
-            int blockedCount = getCountFromDatabase(false);
+            int participantCount = getRoleCountFromDatabase("Participant");
+            int organisateurCount = getRoleCountFromDatabase("Organisateur");
             int totalCount = getTotalUserCount();
 
-            // Create series for approved, blocked, and total clients
-            XYChart.Series<String, Number> approvedSeries = new XYChart.Series<>();
-            approvedSeries.setName("Approved");
-            approvedSeries.getData().add(new XYChart.Data<>("Approved", approvedCount));
+            // Create series for Participant, Organisateur, and Total
+            XYChart.Series<String, Number> participantSeries = new XYChart.Series<>();
+            participantSeries.setName("Participants");
+            participantSeries.getData().add(new XYChart.Data<>("Participants", participantCount));
 
-            XYChart.Series<String, Number> blockedSeries = new XYChart.Series<>();
-            blockedSeries.setName("Blocked");
-            blockedSeries.getData().add(new XYChart.Data<>("Blocked", blockedCount));
+            XYChart.Series<String, Number> organisateurSeries = new XYChart.Series<>();
+            organisateurSeries.setName("Organisateurs");
+            organisateurSeries.getData().add(new XYChart.Data<>("Organisateurs", organisateurCount));
 
             XYChart.Series<String, Number> totalSeries = new XYChart.Series<>();
-            totalSeries.setName("Total");
+            totalSeries.setName("Total Users");
             totalSeries.getData().add(new XYChart.Data<>("Total", totalCount));
 
             // Add series to the bar chart
-            barChart.getData().addAll(approvedSeries, blockedSeries, totalSeries);
+            barChart.getData().addAll(participantSeries, organisateurSeries, totalSeries);
         } catch (SQLException e) {
             System.out.println("An error occurred while initializing the bar chart: " + e.getMessage());
         }
     }
 
-    private int getCountFromDatabase(boolean isApproved) throws SQLException {
-        // Perform database query to get count of clients based on approval status
-        String query = "SELECT COUNT(*) FROM user WHERE is_approved = ?";
+    private int getRoleCountFromDatabase(String role) throws SQLException {
+        // Perform database query to get count of users based on role
+        String query = "SELECT COUNT(*) FROM user WHERE role = ?";
         int count = 0;
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setBoolean(1, isApproved);
+            statement.setString(1, role);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 count = resultSet.getInt(1);

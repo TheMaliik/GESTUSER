@@ -1,20 +1,55 @@
-/* BarChart style */
-.chart-bar {
-    -fx-background-color: #f0f0f0; /* Background color */
+/* Chart container styling */
+.chart {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1;
+    -fx-padding: 10;
 }
 
-.chart-bar .chart-plot-background {
-    -fx-background-color: #ffffff; /* Plot background color */
+/* Chart title */
+.chart-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
 }
 
-.chart-bar .axis {
-    -fx-tick-label-fill: #333333; /* Axis tick label color */
-    -fx-font-size: 14px; /* Axis tick label font size */
+/* Axis labels */
+.axis-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
 
-/* Text style */
-.text {
-    -fx-fill: #666666; /* Text color */
-    -fx-font-size: 24px; /* Font size */
-    -fx-font-weight: bold; /* Font weight */
+/* Center tick labels */
+.axis .tick-label {
+    -fx-text-alignment: center;
+}
+
+/* Bar colors for each series */
+.chart-bar.series0 { /* Participants */
+    -fx-bar-fill: #4CAF50; /* Green */
+}
+.chart-bar.series1 { /* Organisateurs */
+    -fx-bar-fill: #2196F3; /* Blue */
+}
+.chart-bar.series2 { /* Total Users */
+    -fx-bar-fill: #FF9800; /* Orange */
+}
+
+/* Hover effect for bars */
+.chart-bar:hover {
+    -fx-opacity: 0.8;
+}
+
+/* Back button styling */
+.back-button {
+    -fx-background-color: #FF5722;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-background-radius: 5;
+}
+
+.back-button:hover {
+    -fx-background-color: #E64A19;
 }

@@ -1,33 +1,44 @@
 package controller;
 
 import Entity.User;
+import Services.ServiceUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class ParticipantController {
 
     @FXML
     private Label welcomeLabel;
     @FXML
-    private Label nomLabel;
+    private TextField nomField;
     @FXML
-    private Label prenomLabel;
+    private TextField prenomField;
     @FXML
-    private Label emailLabel;
+    private TextField emailField;
     @FXML
-    private Label ageLabel;
+    private TextField ageField;
     @FXML
-    private Label roleLabel;
+    private TextField roleField;
+    @FXML
+    private Button updateButton;
     @FXML
     private Button logoutButton;
 
     private User loggedInUser;
+    private ServiceUser serviceUser; // Service for database operations
+
+    // Constructor to initialize ServiceUser
+    public ParticipantController() {
+        this.serviceUser = new ServiceUser();
+    }
 
     // Setter to receive the logged-in user from LoginController
     public void setLoggedInUser(User user) {
@@ -46,21 +57,60 @@ public class ParticipantController {
 
     private void initializeDashboard() {
         if (loggedInUser != null) {
-            // Populate user information
+            // Populate user information in text fields
             welcomeLabel.setText("Bienvenue, " + loggedInUser.getPrenom() + " " + loggedInUser.getNom());
-            nomLabel.setText("Nom: " + loggedInUser.getNom());
-            prenomLabel.setText("Prénom: " + loggedInUser.getPrenom());
-            emailLabel.setText("Email: " + loggedInUser.getEmail());
-            ageLabel.setText("Âge: " + loggedInUser.getAge());
-            roleLabel.setText("Rôle: " + loggedInUser.getRole());
+            nomField.setText(loggedInUser.getNom());
+            prenomField.setText(loggedInUser.getPrenom());
+            emailField.setText(loggedInUser.getEmail());
+            ageField.setText(String.valueOf(loggedInUser.getAge()));
+            roleField.setText(loggedInUser.getRole());
         } else {
             // Handle case where no user is logged in
             welcomeLabel.setText("Erreur: Aucun utilisateur connecté.");
-            nomLabel.setText("Nom: N/A");
-            prenomLabel.setText("Prénom: N/A");
-            emailLabel.setText("Email: N/A");
-            ageLabel.setText("Âge: N/A");
-            roleLabel.setText("Rôle: N/A");
+            nomField.setText("N/A");
+            prenomField.setText("N/A");
+            emailField.setText("N/A");
+            ageField.setText("N/A");
+            roleField.setText("N/A");
+        }
+    }
+
+    @FXML
+    private void handleUpdate() {
+        if (loggedInUser != null) {
+            try {
+                // Update user information in memory
+                String newNom = nomField.getText();
+                String newPrenom = prenomField.getText();
+                String newEmail = emailField.getText();
+                int newAge = Integer.parseInt(ageField.getText());
+                String newRole = roleField.getText();
+
+                // Update the User object
+                loggedInUser.setNom(newNom);
+                loggedInUser.setPrenom(newPrenom);
+                loggedInUser.setEmail(newEmail);
+                loggedInUser.setAge(newAge);
+                loggedInUser.setRole(newRole);
+                // Note: motDePasse remains unchanged since no field is provided in FXML
+
+                // Persist changes to the database using ServiceUser
+                serviceUser.modifier(loggedInUser);
+
+                // Update welcome label with success message
+                welcomeLabel.setText("Mise à jour réussie, " + newPrenom);
+
+            } catch (NumberFormatException e) {
+                welcomeLabel.setText("Erreur: Âge doit être un nombre.");
+            } catch (SQLException e) {
+                welcomeLabel.setText("Erreur: Problème de connexion à la base de données.");
+                e.printStackTrace();
+            } catch (Exception e) {
+                welcomeLabel.setText("Erreur lors de la mise à jour.");
+                e.printStackTrace();
+            }
+        } else {
+            welcomeLabel.setText("Erreur: Aucun utilisateur connecté.");
         }
     }
 
@@ -72,7 +122,7 @@ public class ParticipantController {
             LoginController.UserConnected = null;
 
             // Load the login FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login.fxml"));
             Parent root = loader.load();
 
             // Get the current stage
