@@ -11,29 +11,26 @@
         <URL value="@listUser.css" />
     </stylesheets>
     <children>
-        <TextField fx:id="search" layoutX="84.0" layoutY="135.0" prefHeight="40.0" prefWidth="235.0" promptText="Search..." styleClass="search" stylesheets="@listactivite.css" />
-
+        <TextField fx:id="search" layoutX="84.0" layoutY="135.0" prefHeight="40.0" prefWidth="235.0" promptText="Rechercher..." styleClass="search" stylesheets="@listactivite.css" />
         <ScrollPane layoutX="65.0" layoutY="187.0" prefHeight="438.0" prefWidth="962.0">
             <content>
                 <VBox fx:id="usersVBox" spacing="10" styleClass="card-container">
-                    <!-- User cards will be dynamically added here -->
+                    <!-- Les cartes d'utilisateurs seront ajoutées dynamiquement ici -->
                 </VBox>
             </content>
         </ScrollPane>
-        <Button layoutX="889.0" layoutY="147.0" mnemonicParsing="false" onAction="#loadStat" prefHeight="36.0" prefWidth="89.0" text="Statistics" />
-
+        <Button layoutX="853.0" layoutY="147.0" mnemonicParsing="false" onAction="#loadStat" prefHeight="36.0" prefWidth="103.0" text="Statistiques" />
         <ImageView fitHeight="86.0" fitWidth="158.0" layoutX="9.0" layoutY="6.0">
             <image>
                 <Image url="@/Assets/logo2.png" />
             </image>
         </ImageView>
-        <CheckBox fx:id="checkBox1" layoutX="336.0" layoutY="151.0" onAction="#TrieEmail" text="Sort by Email" />
-
-        <Text layoutX="407.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Users">
+        <CheckBox fx:id="checkBox1" layoutX="336.0" layoutY="151.0" onAction="#TrieEmail" text="Trier par e-mail" />
+        <Text layoutX="296.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gérer les utilisateurs">
             <font>
                 <Font size="48.0" />
             </font>
         </Text>
-        <Button layoutX="894.0" layoutY="26.0" mnemonicParsing="false" onAction="#goBackHandler" text="Dashboard" />
+        <Button layoutX="845.0" layoutY="26.0" mnemonicParsing="false" onAction="#goBackHandler" text="Tableau de bord" />
     </children>
 </AnchorPane>

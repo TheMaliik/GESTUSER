@@ -12,7 +12,7 @@
     </padding>
 
     <!-- Header -->
-    <Label style="-fx-font-weight: bold; -fx-text-fill: #2a2a2a;" text="Participant Dashboard">
+    <Label style="-fx-font-weight: bold; -fx-text-fill: #2a2a2a;" text="Tableau de bord du participant">
         <!-- Reduced font size from 24 to 20 -->
         <font>
             <Font name="System Bold" size="20" />
@@ -22,7 +22,7 @@
     <!-- User Info Section -->
     <VBox spacing="5" style="-fx-background-color: #e8ecef; -fx-border-color: #d3d3d3; -fx-border-radius: 8; -fx-padding: 10;">
         <!-- Reduced spacing and padding -->
-        <Label fx:id="welcomeLabel" style="-fx-font-weight: bold;" text="Welcome, [User]">
+        <Label fx:id="welcomeLabel" style="-fx-font-weight: bold;" text="Bienvenue, [User]">
             <!-- Reduced font size from 18 to 16 -->
             <font>
                 <Font size="16" />
@@ -32,7 +32,7 @@
             <!-- Reduced hgap and vgap -->
             <!-- Nom -->
             <VBox spacing="2" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                <Label style="-fx-font-weight: bold;" text="Nom:">
+                <Label style="-fx-font-weight: bold;" text="Nom :">
                     <!-- Reduced font size from 14 to 12 -->
                     <font>
                         <Font size="12" />
@@ -43,7 +43,7 @@
             </VBox>
             <!-- Prénom -->
             <VBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                <Label style="-fx-font-weight: bold;" text="Prénom:">
+                <Label style="-fx-font-weight: bold;" text="Prénom :">
                     <font>
                         <Font size="12" />
                     </font>
@@ -52,7 +52,7 @@
             </VBox>
             <!-- Email -->
             <VBox spacing="2" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                <Label style="-fx-font-weight: bold;" text="Email:">
+                <Label style="-fx-font-weight: bold;" text="E-mail :">
                     <font>
                         <Font size="12" />
                     </font>
@@ -61,7 +61,7 @@
             </VBox>
             <!-- Âge -->
             <VBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <Label style="-fx-font-weight: bold;" text="Âge:">
+                <Label style="-fx-font-weight: bold;" text="Âge :">
                     <font>
                         <Font size="12" />
                     </font>
@@ -70,32 +70,30 @@
             </VBox>
             <!-- Rôle -->
             <VBox spacing="2" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                <Label style="-fx-font-weight: bold;" text="Rôle:">
+                <Label style="-fx-font-weight: bold;" text="Rôle :">
                     <font>
                         <Font size="12" />
                     </font>
                 </Label>
                 <TextField fx:id="roleField" prefWidth="120" style="-fx-background-color: #ffffff; -fx-border-color: #d3d3d3; -fx-border-radius: 5;" text="[Rôle]" />
             </VBox>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
         </GridPane>
     </VBox>
 
     <!-- Action Buttons -->
     <VBox alignment="CENTER" spacing="5">
         <!-- Reduced spacing -->
-        <Button fx:id="updateButton" onAction="#handleUpdate" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 10; -fx-border-radius: 5;" text="Update" />
+        <Button fx:id="updateButton" onAction="#handleUpdate" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 10; -fx-border-radius: 5;" text="Mettre à jour" />
         <!-- Reduced padding -->
-        <Button fx:id="logoutButton" onAction="#handleLogout" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 10; -fx-border-radius: 5;" text="Logout" />
+        <Button fx:id="logoutButton" onAction="#handleLogout" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 10; -fx-border-radius: 5;" text="Déconnexion" />
     </VBox>
-
-
 </VBox>

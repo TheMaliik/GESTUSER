@@ -13,33 +13,27 @@
                 <Image url="@/Assets/Blue.png" />
             </image>
         </ImageView>
-
         <ImageView fitHeight="110.0" fitWidth="129.0" layoutX="3.0" layoutY="5.0">
             <image>
                 <Image url="@/Assets/logoo.png" />
             </image>
         </ImageView>
-        <Button layoutX="189.0" layoutY="40.0" mnemonicParsing="false" onAction="#LoadUsersInterface" prefHeight="26.0" prefWidth="184.0" text="Users" />
-
-        <Button fx:id="logout" layoutX="792.0" layoutY="539.0" mnemonicParsing="false" onAction="#goBackHandler" prefHeight="26.0" prefWidth="184.0" text="Logout">
-         <font>
-            <Font size="28.0" />
-         </font></Button>
-
-
-
-      <Text layoutX="281.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Text layoutX="143.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome, admin! Explore your dashboard's capabilities via the sidebar functions." textAlignment="CENTER" wrappingWidth="714.3734741210938">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-
-
+        <Button layoutX="189.0" layoutY="40.0" mnemonicParsing="false" onAction="#LoadUsersInterface" prefHeight="26.0" prefWidth="184.0" text="Utilisateurs" />
+        <Button fx:id="logout" layoutX="792.0" layoutY="539.0" mnemonicParsing="false" onAction="#goBackHandler" prefHeight="26.0" prefWidth="184.0" text="Déconnexion">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Button>
+        <Text layoutX="281.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Text layoutX="143.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue, administrateur ! Explorez les fonctionnalités de votre tableau de bord via les options de la barre latérale." textAlignment="CENTER" wrappingWidth="714.3734741210938">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
     </children>
     <stylesheets>
         <URL value="@/AdminDashboard.css" />

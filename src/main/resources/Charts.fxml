@@ -10,12 +10,12 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChartController">
     <children>
         <!-- BarChart with adjusted properties for alignment -->
-        <BarChart fx:id="barChart" layoutX="50.0" layoutY="100.0" prefHeight="400.0" prefWidth="700.0" title="User Role Distribution" barGap="2.0" categoryGap="10.0">
+        <BarChart fx:id="barChart" layoutX="50.0" layoutY="100.0" prefHeight="400.0" prefWidth="700.0" title="Répartition des rôles des utilisateurs" barGap="2.0" categoryGap="10.0">
             <xAxis>
-                <CategoryAxis fx:id="xAxis" label="Role Categories" tickLabelRotation="0.0" tickLabelGap="5.0" />
+                <CategoryAxis fx:id="xAxis" label="Catégories de rôles" tickLabelRotation="0.0" tickLabelGap="5.0" />
             </xAxis>
             <yAxis>
-                <NumberAxis fx:id="yAxis" label="Number of Users" autoRanging="true" tickUnit="1" />
+                <NumberAxis fx:id="yAxis" label="Nombre d'utilisateurs" autoRanging="true" tickUnit="1" />
             </yAxis>
             <opaqueInsets>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -23,14 +23,14 @@
         </BarChart>
 
         <!-- Title text -->
-        <Text layoutX="15.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Role Statistics">
+        <Text layoutX="15.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistiques des rôles des utilisateurs">
             <font>
                 <Font name="System Bold" size="28.0" />
             </font>
         </Text>
 
         <!-- Back button -->
-        <Button layoutX="700.0" layoutY="30.0" mnemonicParsing="false" onAction="#goBackHandler" text="Back" styleClass="back-button" prefHeight="30.0" prefWidth="80.0">
+        <Button layoutX="700.0" layoutY="30.0" mnemonicParsing="false" onAction="#goBackHandler" text="Retour" styleClass="back-button" prefHeight="30.0" prefWidth="80.0">
             <font>
                 <Font size="14.0" />
             </font>

@@ -14,7 +14,7 @@
     </padding>
 
     <!-- Header -->
-    <Label text="Organisateur Dashboard" style="-fx-font-weight: bold; -fx-text-fill: #2a2a2a;">
+    <Label text="Tableau de bord de l'organisateur" style="-fx-font-weight: bold; -fx-text-fill: #2a2a2a;">
         <font>
             <Font name="System Bold" size="22"/>
         </font>
@@ -22,16 +22,16 @@
 
     <!-- User Info Section -->
     <VBox fx:id="userInfoVBox" spacing="8" style="-fx-background-color: #e8ecef; -fx-border-color: #d3d3d3; -fx-border-radius: 8; -fx-padding: 15;">
-        <Label fx:id="welcomeLabel" text="Welcome, [User]" style="-fx-font-weight: bold;">
+        <Label fx:id="welcomeLabel" text="Bienvenue, [User]" style="-fx-font-weight: bold;">
             <font>
                 <Font size="16"/>
             </font>
         </Label>
-        <Label fx:id="nomLabel" text="Nom: [Nom]"/>
-        <Label fx:id="prenomLabel" text="Prénom: [Prénom]"/>
-        <Label fx:id="emailLabel" text="Email: [Email]"/>
-        <Label fx:id="ageLabel" text="Âge: [Âge]"/>
-        <Label fx:id="roleLabel" text="Rôle: [Rôle]"/>
+        <Label fx:id="nomLabel" text="Nom : [Nom]"/>
+        <Label fx:id="prenomLabel" text="Prénom : [Prénom]"/>
+        <Label fx:id="emailLabel" text="E-mail : [Email]"/>
+        <Label fx:id="ageLabel" text="Âge : [Âge]"/>
+        <Label fx:id="roleLabel" text="Rôle : [Rôle]"/>
     </VBox>
 
     <!-- Update Form Section -->
@@ -41,20 +41,20 @@
                 <Font size="16"/>
             </font>
         </Label>
-        <Label text="Nom:"/>
+        <Label text="Nom :"/>
         <TextField fx:id="nomField"/>
-        <Label text="Prénom:"/>
+        <Label text="Prénom :"/>
         <TextField fx:id="prenomField"/>
-        <Label text="Email:"/>
+        <Label text="E-mail :"/>
         <TextField fx:id="emailField"/>
-        <Label text="Âge:"/>
+        <Label text="Âge :"/>
         <TextField fx:id="ageField"/>
         <Button fx:id="saveButton" text="Enregistrer" onAction="#handleSave" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-border-radius: 5;"/>
         <Button fx:id="cancelButton" text="Annuler" onAction="#handleCancel" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-border-radius: 5;"/>
     </VBox>
 
     <!-- Buttons -->
-    <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-border-radius: 5;"/>
+    <Button fx:id="logoutButton" text="Déconnexion" onAction="#handleLogout" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-border-radius: 5;"/>
     <Button fx:id="updateButton" text="Mettre à jour" onAction="#handleUpdate" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-border-radius: 5;"/>
 
     <stylesheets>
