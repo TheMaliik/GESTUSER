@@ -13,13 +13,18 @@
                 <Image url="@/Assets/Blue.png" />
             </image>
         </ImageView>
+        <ImageView fitHeight="510.0" fitWidth="155.0" layoutX="-9.0" layoutY="95.0">
+            <image>
+                <Image url="@/Assets/Blue.png" />
+            </image>
+        </ImageView>
         <ImageView fitHeight="110.0" fitWidth="129.0" layoutX="3.0" layoutY="5.0">
             <image>
                 <Image url="@/Assets/logoo.png" />
             </image>
         </ImageView>
-        <Button layoutX="189.0" layoutY="40.0" mnemonicParsing="false" onAction="#LoadUsersInterface" prefHeight="26.0" prefWidth="184.0" text="Utilisateurs" />
-        <Button fx:id="logout" layoutX="792.0" layoutY="539.0" mnemonicParsing="false" onAction="#goBackHandler" prefHeight="26.0" prefWidth="184.0" text="Déconnexion">
+        <Button layoutX="11.0" layoutY="164.0" mnemonicParsing="false" onAction="#LoadUsersInterface" prefHeight="30.0" prefWidth="118.0" text="Utilisateurs" />
+        <Button fx:id="logout" layoutX="794.0" layoutY="561.0" mnemonicParsing="false" onAction="#goBackHandler" prefHeight="26.0" prefWidth="184.0" text="Déconnexion">
             <font>
                 <Font size="28.0" />
             </font>
@@ -29,7 +34,7 @@
                 <Font size="24.0" />
             </font>
         </Text>
-        <Text layoutX="143.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue, administrateur ! Explorez les fonctionnalités de votre tableau de bord via les options de la barre latérale." textAlignment="CENTER" wrappingWidth="714.3734741210938">
+        <Text layoutX="207.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue, administrateur ! Explorez les fonctionnalités de votre tableau de bord via les options de la barre latérale." textAlignment="CENTER" wrappingWidth="650.3734741210938">
             <font>
                 <Font size="24.0" />
             </font>
